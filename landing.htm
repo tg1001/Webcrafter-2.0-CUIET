@@ -3,177 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India Crafts</title>
+    <title>Indian Crafts</title>
     <style>
-        /* Global Styles */
-        body {
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
+            overflow-x: hidden;
             font-family: Arial, sans-serif;
-            background: url('india-map.jpg') no-repeat center center/cover;
+            text-align: center;
         }
 
-        /* Floating Navbar */
-        .navbar {
+        /* Video Background */
+        .video-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 30px;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .navbar .logo {
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar ul li {
-            margin: 0 15px;
-        }
-
-        .navbar ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .shop-now {
-            position: absolute;
-            background: #FFD700;
-            padding: 15px 30px;
-            border: none;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-
-        /* Handicrafts Showcase with Video Background */
-        .showcase {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-
-        .video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
             z-index: -1;
         }
 
-        .showcase h2 {
-            font-size: 2em;
-            position: relative;
-            z-index: 1;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 10px;
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .products {
+        /* Navbar */
+        .navbar {
+            background-color: rgba(128, 128, 128, 0.5); /* Semi-transparent navbar */
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            margin-left: 20px; /* Moves the logo to the left */
+        }
+
+        /* Navbar Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* About Us Panel */
+        .about-us-panel {
+            width: 50%;
+            background-image: url('bg.jpg');
+            height: 80%;
+            background-size: cover;
+            background-position: center;
+            padding: 10px 12%;
+            border-radius: 10px;
+            margin: 150px auto;
+            text-align: left;
+            color: white;
+        }
+
+        .about-us-panel h2 {
+            font-size: 30px;
+            font-weight: bold;
+            color: #5A60F1;
+        }
+
+        .about-us-panel p {
+            font-size: 28px;
+            color: #36251c;
+        }
+
+        /* Discover Section */
+        .product-section {
+            margin-top: 30px;
+            background: rgba(235, 227, 227, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .discover-tile {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 40px;
+            font-size: 22px;
+            color: white;
+            background-color: #5A60F1;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .discover-tile:hover {
+            background-color: #4448C7;
+        }
+
+        /* Centering Images */
+        .image-container {
             display: flex;
             justify-content: center;
             gap: 20px;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            width: 300px;
+            height: 200px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Welcome Content */
+        .content {
             position: relative;
             z-index: 1;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 50px;
         }
 
-        .product {
-            width: 150px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
+        /* Footer */
+        .footer {
+            background-color: grey;
+            color: white;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        /* Smaller Panel with Background Image */
+        .small-panel {
+            background-image: url('/your-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .product img {
+            align-items: center;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            margin: 50px auto;
             width: 80%;
         }
+
+        .small-panel h2 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
 
+    <!-- Video Background -->
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">🇮🇳 India Crafts</div>
-        <ul>
+        <a href="#" class="logo"><img src="/lgoo.jpeg" alt="Logo"></a>
+        <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Shop</a></li>
-            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="overlay"></div>
-        <button class="shop-now">Shop Now</button>
-    </section>
+    <!-- About Us Panel -->
+    <div class="about-us-panel">
+        <br>
+        <h2>........About Us</h2>
+        <p>We are dedicated to showcasing the finest Indian handicrafts, bringing traditional crafts and modern designs together. Our mission is to promote Indian artistry and provide a platform for local artisans to share their crafts with the world.</p>
+    </div>
 
-    <!-- Handicrafts Showcase with Video Background -->
-    <section class="showcase">
-        <video class="video-bg" autoplay loop muted playsinline>
-            <source src="golden-mandala.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <h2>Discover the Handicrafts</h2>
-        <div class="products">
-            <div class="product">
-                <img src="pottery.png" alt="Pottery">
-            </div>
-            <div class="product">
-                <img src="woodwork.png" alt="Woodwork">
-            </div>
-            <div class="product">
-                <img src="jewelry.png" alt="Jewelry">
-            </div>
+    <!-- Discover Indian Products Section -->
+    <div class="product-section">
+        <h2>DISCOVER INDIAN PRODUCTS</h2>
+        <div class="discover-tile" onclick="window.location.href='discover.html'">
+            Discover Products
         </div>
-    </section>
+        <div class="image-container">
+            <img src="/sggs.png" alt="Indian Product 1">
+            <img src="/kashmiri pashmina shawl.png" alt="Indian Product 2">
+            <img src="/Punjabi Jutti.png" alt="Indian Product 3">
+        </div>
+    </div>
+
+    <!-- Smaller Panel with Background Image -->
+    <div class="small-panel">
+        <h2>Explore More of India's Craft</h2>
+    </div>
+
+    <!-- Welcome Content -->
+    <div class="content">
+        <h1>Welcome to INDIA CRAFTS</h1>
+        <p>Explore our handicrafts.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>India Crafts</p>
+    </div>
 
 </body>
 </html>
-
