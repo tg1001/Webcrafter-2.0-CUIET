@@ -1,5 +1,5 @@
 
- Are you someone who loves exploring India's culutre & heritage ?
+ Are you someone who loves exploring India's culutre & heritage ?<br>
  We are here to present to you India Crafts, a unique eCommerce platform that brings together the finest products from across India. 
  <br>
  Our platform showcases five amazing states, each offering their top three best products.
